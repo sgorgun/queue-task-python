@@ -1,92 +1,186 @@
-# queue--task--python
+# Queue (python)
 
+Set of programming assignments that are designed to test knowledge of queue data structure.
 
+### Default interface for Queue data structure
 
-## Getting started
+The following snippet contains the default interface that could be used for implementation of Queue data structure. Of course the interface could be expanded with additional methods if needed.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+```python
+class Queue:
+    """Default interface for Queue data structure."""
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+    def __init__(self):
+        pass
 
-## Add your files
+    def empty(self) -> bool:
+        """Returns True if the queue is empty.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+        NOTE: O(1) complexity is expected for this operation.
+        """
+        pass
 
+    def size(self) -> int:
+        """Returns the number of elements within the queue.
+
+        NOTE: O(1) complexity is expected for this operation.
+        """
+        pass
+
+    def push(self, element: Any):
+        """Adds a given element to the queue's tail.
+
+        NOTE: O(1) complexity is expected for this operation.
+        """
+        pass
+
+    def pop(self) -> Any:
+        """Returns the head element and removes it.
+
+        NOTE: O(1) complexity is expected for this operation.
+
+        Raises:
+            ValueError: If the queue is empty.
+        """
+        pass
+
+    def peak(self) -> Any:
+        """Returns the head element.
+
+        NOTE: O(1) complexity is expected for this operation.
+
+        Raises:
+            ValueError: If the queue is empty.
+        """
+        pass
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/epam-gap-bs-ads/queue-task-python.git
-git branch -M main
-git push -uf origin main
+
+You may find the interface above here: `tasks/queue.py:Queue`.
+
+## Problem 1: Implement queue using the default interface
+
+Your first programming assignment is to implement the provided default interface for Queue above.
+Tests will check your implementation in different scenarios, for simplicity you may assume that only numeric elements will be used for testing.
+
+
+Please use a template for the implementation (`tasks/queue.py:Queue`).
+
+
+## Problem 2: Implement queue using two stacks
+
+Your task is to implement queue data structure using only two stacks. For this programming assignment you should re-use your solution for the first problem from the Stack problem set (`Problem 1: Implement stack using the default interface`).
+
+
+Please use a template for the implementation (`tasks/queue.py:QueueViaStacks`).
+
+
+## Problem 3: Calculate the number of islands in a given grid
+
+Given an `m x n` 2D binary grid `grid` which represents a map of `'1'`s (land) and `'0'`s (water), return *the number of islands*.
+
+An **island** is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+
+**Example 1:**
+
+Input:
+```
+000000000
+001111100
+001101000
+001100000
+000000000
 ```
 
-## Integrate with your tools
+Expected result: 1.
 
-- [ ] [Set up project integrations](https://gitlab.com/epam-gap-bs-ads/queue-task-python/-/settings/integrations)
+Explanation: there is the only one island in the middle.
 
-## Collaborate with your team
+**Example 2:**
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+Input:
+```
+000000000
+001110000
+001100000
+001100011
+000000011
+```
 
-## Test and Deploy
+Expected result: 2.
 
-Use the built-in continuous integration in GitLab.
+Explanation: there is one island in the middle, and the second one is in the bottom-right corner.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+Please use a template for the implementation (`tasks/islands.py:get_islands_count`).
 
-***
 
-# Editing this README
+## Problem 4: Minimum knight moves (with obstacles)
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+For a given `chessboard` (`8 x 8` cells) you need to determine the minimal number of moves for the knight (`K` character) to reach the destination cell (`D` character). It is guaranteed the answer exists.
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+There are four types of cells available:
 
-## Name
-Choose a self-explaining name for your project.
+* `K` - the knight. It is guaranteed it exists on the board.
+* `D` - the destination cell. It is guaranteed it exists on the board.
+* `O` - obstacles. The knight cannot go to cells with obstacles.
+* `.` - empty cells, the knight can go to such cells.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+**Eligible knight moves**
+![alt text](imgs/knight_moves.png "Eligible knight moves")
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+**Example 1:**
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+Input:
+```
+K.......
+........
+........
+........
+........
+........
+........
+.....D..
+```
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+Expected result: 4.
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+Explanation:
+```
+K.......
+........
+.1......
+........
+..2.....
+........
+...3....
+.....D..
+```
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+**Example 2:**
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+Input:
+```
+K...O...
+.....O..
+.O..OO..
+.O......
+...O.O..
+O.OOO...
+O.......
+O....D..
+```
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+Expected result: 6.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+Explanation:
+```
+K...O...
+..1..O..
+2O..OO..
+.O3.....
+...O4O..
+O.OOO.5.
+O.......
+O....D..
+```
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Please use a template for the implementation (`tasks/knight.py:get_minimum_knight_moves`).
