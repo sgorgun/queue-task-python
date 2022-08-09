@@ -1,5 +1,5 @@
 """Sample tests for 'tasks.knight' module."""
-from tasks.knight import get_islands_count
+from tasks.knight import get_minimum_knight_moves
 
 
 def test_get_minimum_knight_moves_sample():
@@ -28,4 +28,4 @@ def test_get_minimum_knight_moves_sample():
             list('O.......'),
             list('O....D..')
         ]
-    ) == 8
+    ) == 6
