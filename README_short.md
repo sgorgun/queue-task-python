@@ -1,26 +1,17 @@
-# Queue (python)
+# Queue
 
-Set of programming assignments that are designed to test knowledge of queue data structure.
+## Purpose
 
+The coding exercises are designed to test knowledge of the following concepts:
 
-## Problem 1: Implement queue using the default interface
+* The default Queue interface
+* Queue via two Stacks
+* Usage of Queue data structure in practice
 
-Your first programming assignment is to implement the provided default interface for Queue above.
-Tests will check your implementation in different scenarios, for simplicity you may assume that only numeric elements will be used for testing.
+## Overview
 
-
-## Problem 2: Implement queue using two stacks
-
-Your task is to implement queue data structure using only two stacks. For this programming assignment you should re-use your solution for the first problem from the Stack problem set (`Problem 1: Implement stack using the default interface`).
-
-
-## Problem 3: Calculate the number of islands in a given grid
-
-Given an `m x n` 2D binary grid `grid` which represents a map of `'1'`s (land) and `'0'`s (water), return *the number of islands*.
-
-An **island** is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
-
-
-## Problem 4: Minimum knight moves (with obstacles)
-
-For a given `chessboard` (`8 x 8` cells) you need to determine the minimal number of moves for the knight (`K` character) to reach the destination cell (`D` character). It is guaranteed the answer exists.
+The coding exercises cover the following practical problems:
+* Implementing the default Queue interface
+* Implementing Queue via two Stacks
+* Calculating the number of islands in a grid
+* Knight traversal
