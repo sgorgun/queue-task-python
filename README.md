@@ -2,26 +2,26 @@
 
 ## Purpose
 
-The coding exercises are designed to test knowledge of the following concepts:
+The coding exercises are designed to test your knowledge of the following concepts:
 
-* The default Queue interface
-* Queue via two Stacks
-* Usage of Queue data structure in practice
+* The default queue interface
+* Queues that are implemented using two stacks
+* Using the queue data structure in practice
 
 ## Overview
 
 The coding exercises cover the following practical problems:
-* Implementing the default Queue interface
-* Implementing Queue via two Stacks
+* Implementing the default queue interface
+* Implementing a queue using two stacks
 * Calculating the number of islands in a grid
 * Knight traversal
 
 
 ## Coding exercises
 
-### Exercise 1: Implement the default Queue interface
+### Exercise 1: Implement the default queue interface
 
-The following snippet contains the default interface that could be used for implementation of Queue data structure. Of course the interface could be expanded with additional methods if needed.
+The following snippet contains the default interface, which can be used to implement the queue data structure. Of course, the interface can be expanded with additional methods if necessary.
 
 ```python
 class Queue:
@@ -72,16 +72,18 @@ class Queue:
         pass
 ```
 
-Your task is to implement the provided default interface for Queue above.
+Your task is to implement the default interface for the queue above.
 
-Please use a template for the implementation (`tasks/queue.py:Queue`).
+<br/>
 
-## Exercise 2: Implement queue using two stacks
+Please use the template `tasks/queue.py:Queue` for the implementation.
 
-Your task is to implement Queue data structure using only two Stacks. For this exercise you should re-use your solution for the first problem from the Stack problem set (`Exercise 1: Implement the default Stack interface`).
-Replace a template `tasks/stack.py:Stack` with your solution.
+## Exercise 2: Implement a queue using two stacks
 
-The proposed template for you to use:
+Your task is to implement a queue data structure using only two stacks. For this exercise, you should re-use your solution to the first problem from the stack problem set (`Exercise 1: Implement the default stack interface`).
+Replace the template `tasks/stack.py:Stack` with your solution.
+
+You should use the following template:
 ```python
 class QueueViaStacks:
     """Default Queue interface implemented with two stacks only.
@@ -139,16 +141,18 @@ class QueueViaStacks:
         pass
 ```
 
-Please use a template for the implementation (`tasks/queue.py:QueueViaStacks`).
+<br/>
+
+Please use the template `tasks/queue.py:QueueViaStacks` for the implementation.
 
 
 ## Exercise 3: Calculate the number of islands in a grid
 
 Given an `m x n` 2D binary grid `grid` which represents a map of `'1'`s (land) and `'0'`s (water), return *the number of islands*.
 
-An **island** is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+An **island** is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. Assume all four edges of the grid are surrounded by water.
 
-Your task is implement the following function that solves the problem above:
+Your task is to implement the following function to solve the problem above:
 
 ```python
 def get_islands_count(grid: List[List[str]]) -> int:
@@ -173,7 +177,7 @@ def get_islands_count(grid: List[List[str]]) -> int:
 
 Expected output: 1.
 
-Explanation: there is the only one island in the middle.
+Explanation: there is only one island in the middle.
 
 **Example 2:**
 
@@ -190,24 +194,26 @@ Expected output: 2.
 
 Explanation: there is one island in the middle, and the second one is in the bottom-right corner.
 
-Please use a template for the implementation (`tasks/islands.py:get_islands_count`).
+<br/>
+
+Please use the template `tasks/islands.py:get_islands_count` for the implementation.
 
 
 ## Exercise 4: Knight traversal
 
-For a given `chessboard` (`8 x 8` cells) you need to determine the minimal number of moves for the knight (`K` character) to reach the destination cell (`D` character). It is guaranteed the answer exists.
+For a given `chessboard` (`8 x 8` cells), you need to determine the minimum number of moves for the knight (character `K`) to reach the destination cell (character `D`). It is guaranteed that the answer exists.
 
 There are four types of cells available:
 
-* `K` - the knight. It is guaranteed it exists on the board.
-* `D` - the destination cell. It is guaranteed it exists on the board.
-* `O` - obstacles. The knight cannot go to cells with obstacles.
-* `.` - empty cells, the knight can go to such cells.
+* `K` - the knight. It is guaranteed that it exists on the board.
+* `D` - the destination cell. It is guaranteed that it exists on the board.
+* `O` - obstacles. The knight cannot occupy cells with obstacles.
+* `.` - empty cells. The knight can occupy these cells.
 
-**Eligible knight moves**
+**Eligible moves**
 ![alt text](imgs/knight_moves.png "Eligible knight moves")
 
-Your task is implement the following function that solves the problem above:
+Your task is to implement the following function to solve the problem above:
 
 ```python
 def get_minimum_knight_moves(chessboard: List[List[str]]) -> int:
@@ -271,4 +277,6 @@ O.......
 O....D..
 ```
 
-Please use a template for the implementation (`tasks/knight.py:get_minimum_knight_moves`).
+<br/>
+
+Please use the template `tasks/knight.py:get_minimum_knight_moves` for the implementation.
